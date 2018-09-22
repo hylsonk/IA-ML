@@ -22,6 +22,6 @@ Y = np.asarray(Y)
 
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.20, random_state=18)
 
-print Xtrain
-ml = Machine(Xtrain)
+# print Xtrain
+ml = Machine()
 ml.learning(Xtrain, Ytrain)
