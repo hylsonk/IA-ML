@@ -12,7 +12,7 @@ data = pandas.DataFrame(dataFile)
 data.columns = ["PetalLength", "PetalWidth", "SepalLength", "SepalWidth", "Class"]
 
 # Mapeando as classes para que as Strings sejam substituidas por valores numericos
-mapping = {'Iris-setosa' : 0, 'Iris-versicolor': 1, 'Iris-virginica': 2}
+mapping = {'Iris-setosa' : -1, 'Iris-versicolor': -1, 'Iris-virginica': 1}
 data = data.replace({'Class':mapping})
 
 X = data[['PetalLength', 'PetalWidth', 'SepalLength', 'SepalWidth']]
@@ -20,8 +20,14 @@ X = np.asarray(X)
 Y = data['Class'].values
 Y = np.asarray(Y)
 
-Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.20, random_state=18)
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.10, random_state=18)
 
 # print Xtrain
 ml = Machine()
 ml.learning(Xtrain, Ytrain)
+
+result = ml.work(Xtest)
+
+accuracy = accuracy_score(Ytest, result)
+
+print "precisao= ", accuracy
