@@ -5,11 +5,10 @@ import numpy as np
     file = o arquivo CSV com o dataset
 '''
 class Machine:
-    def __init__(self, Xtrain, Ytrain):
-        self.Xtrain
-        self.Ytrain
+    def __init__(self, Xtrain):
+        print "Iniciando"
 
-    def learning(self):
+    def learning(self, Xtrain, Ytrain):
         print "Learning"
 
     def work(self):

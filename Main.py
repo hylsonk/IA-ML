@@ -1,7 +1,8 @@
-import Machine as ml
+from Machine import *
 import pandas as pandas
-import sklearn as sk
 import numpy as np
+from sklearn.model_selection import train_test_split #para embaralhar os dados aleatoriamente
+from sklearn.metrics import accuracy_score #para medir nossa acuracia
 
 file = 'IrisDataset.csv'
 
@@ -16,10 +17,11 @@ data = data.replace({'Class':mapping})
 
 X = data[['PetalLength', 'PetalWidth', 'SepalLength', 'SepalWidth']]
 X = np.asarray(X)
-Y = data[['Class']]
+Y = data['Class'].values
 Y = np.asarray(Y)
 
-Xtrain, Xtest, Ytrain, Ytest = sk.model_selection.train_test_split(X, Y, test_size=0.20)
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.20, random_state=18)
 
-machine = ml.Machine(Xtrain,Ytrain)
-machine.learning()
+print Xtrain
+ml = Machine(Xtrain)
+ml.learning(Xtrain, Ytrain)
