@@ -1,5 +1,7 @@
 import Machine as ml
 import pandas as pandas
+import sklearn as sk
+import numpy as np
 
 file = 'IrisDataset.csv'
 
@@ -12,5 +14,12 @@ data.columns = ["PetalLength", "PetalWidth", "SepalLength", "SepalWidth", "Class
 mapping = {'Iris-setosa' : 0, 'Iris-versicolor': 1, 'Iris-virginica': 2}
 data = data.replace({'Class':mapping})
 
-machine = ml.Machine(data)
+X = data[['PetalLength', 'PetalWidth', 'SepalLength', 'SepalWidth']]
+X = np.asarray(X)
+Y = data[['Class']]
+Y = np.asarray(Y)
+
+Xtrain, Xtest, Ytrain, Ytest = sk.model_selection.train_test_split(X, Y, test_size=0.20)
+
+machine = ml.Machine(Xtrain,Ytrain)
 machine.learning()
