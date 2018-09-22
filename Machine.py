@@ -23,7 +23,7 @@ class Machine:
         print range(numLin)
         # while go:
         #     go = False
-        for c in range(0, 1000000):
+        for c in range(0, 100):
             for i in range(numLin):
                 # print i
                 h = np.dot(self.W.transpose(), x[i, :])
@@ -32,19 +32,17 @@ class Machine:
                 # print x[i, :]
 
                 if (np.sign(h) != np.sign(y[i])):
-                    # print 'Classificacao errada. ', np.sign(h), ' != ', np.sign(y[i])
+                    print 'Classificacao errada. ', np.sign(h), ' != ', np.sign(y[i])
                     # go = True
                     # print 'W antes de atualizar', self.W
                     self.W = self.W + np.dot(y[i], x[i, :])
                     # print np.dot(y[i], x[i, :])
-                    # print 'W atualizado:', self.W
+                    print 'W atualizado:', self.W
                 else:
                     print 'Classificacao correta', np.sign(h), '=', np.sign(y[i])
 
 
     def work(self, Xtest):
-        numCol = Xtest.shape[1]
-        self.W = np.ones(shape=(numCol + 1))
         numLin = len(Xtest)
         x0 = np.ones(shape=(numLin, 1))
         x = np.concatenate((x0, Xtest), axis=1)
