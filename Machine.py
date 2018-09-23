@@ -45,6 +45,12 @@ class Machine:
                     print 'W atualizado:', self.W
                 # else:
                     # print 'Classificacao correta', np.sign(h), '=', np.sign(y[i])
+    
+    def getW(self):
+        return self.W
+
+    def setW(self,W):
+        self.W = W
 
     # Funcao de execucao - faz o Machine executar o que aprendeu
     def work(self, Xtest):
@@ -62,6 +68,32 @@ class Machine:
         for i in range(numLin):
             h = np.dot(self.W.transpose(), x[i, :])
             result.append(np.sign(h))
+
+        # Retorna o resutado da aprendizagem
+        return result
+
+    def workIris(self, Xtest, WVirginica, WVersicolor):
+        # Pega o numero de linhas da amostra
+        numLin = len(Xtest)
+
+        # Cria uma coluna com 1's e concatena com os valores de Xtest
+        x0 = np.ones(shape=(numLin, 1))
+        x = np.concatenate((x0, Xtest), axis=1)
+
+        # Inicializa o vetor de resultados
+        result = []
+
+        # Executa o que aprendeu
+        for i in range(numLin):
+            h = np.dot(WVirginica.transpose(), x[i, :])
+            if h > 0:
+                result.append(np.sign(h))
+            else:
+                h = np.dot(WVersicolor.transpose(), x[i, :])
+                if h > 0:
+                    result.append(np.sign(-1))
+                else:
+                    result.append(np.sign(0))
 
         # Retorna o resutado da aprendizagem
         return result
