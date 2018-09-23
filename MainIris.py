@@ -54,6 +54,7 @@ def work(WVirginica, WVersicolor):
 
     data = data.replace({'Class': mapping})
 
+    #Separa 30% do banco para teste.
     dataTrain,dataTest = train_test_split(data, test_size=0.30)
 
     # Divide os dados que a maquina vai trabalhar que nao foram passados no treino
@@ -76,9 +77,12 @@ def work(WVirginica, WVersicolor):
 # Mapeando as classes para que as Strings sejam substituidas por valores numericos
 mappingVirginica = {'Iris-setosa': -1, 'Iris-versicolor': -1, 'Iris-virginica': 1}
 
+print ("Aprendendo sobre Virginica");
+
 # Chama a funcao de aprendizado para classifica se sao Iris-Virginica ou nao
 WVirginica = MLearning(mappingVirginica)
 
+print ("Aprendendo sobre Versicolor");
 # Mapeando as classes para que as Strings sejam substituidas por valores numericos
 mappingVersicolor = {'Iris-setosa': -1, 'Iris-versicolor': 1, 'Iris-virginica': -1}
 
