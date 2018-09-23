@@ -4,6 +4,13 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+'''
+    Esse programa tem como objetivo descobrir o sexo da pessoa em  usando como dados o seu Rank, Anos no atual rank, Grau de formacao, Numero de anos trabalho no seu grau e seu salario
+
+    OBS: Para conseguir classificar as pessoas foi a maquina foi executada apenas 1 vez, pois a classificacao foi de Homem ou Mulher
+
+'''
+
 # Arquivo CSV de entrada
 file = "salaries.csv"
 

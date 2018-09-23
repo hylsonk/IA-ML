@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 '''
     Esse programa tem como objetivo classificar flores Iris-setosa, Iris-versicolor e Iris-virginica em  usando como dado PetalLength, PetalWidth, SepalLength e SepalWidth
     
-    Para conseguir classificar as flores foram realizadas duas execucoes de maquinas para classificar se sao Iris-virginica ou nao e se sao Iris-versicolor ou nao
+    OBS: Para conseguir classificar as flores foram realizadas duas execucoes de maquinas para classificar se sao Iris-virginica ou nao e se sao Iris-versicolor ou nao
     
 '''
 # Funcao que vai chamar a Machine para fazer o apendizado e execucao do que a Machine aprendeu exibindo a sua precisao
