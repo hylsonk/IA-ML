@@ -1,3 +1,11 @@
+'''
+Arquivo principal para a aprendizado e execução de testes de Machine Learning.
+Programa feito para a disciplina de IA 2018.2 da UFRJ
+Autores:
+Gabriel de Souza Barbosa
+Hylson Kobayashi
+'''
+
 import numpy as np
 
 '''

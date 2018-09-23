@@ -1,3 +1,11 @@
+'''
+Arquivo principal para a execução do Machine Learning para o dataset Trabalho/Sexo
+Programa feito para a disciplina de IA 2018.2 da UFRJ
+Autores:
+Gabriel de Souza Barbosa
+Hylson Kobayashi
+'''
+
 from Machine import *
 import pandas as pandas
 import numpy as np
